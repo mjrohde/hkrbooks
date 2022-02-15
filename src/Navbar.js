@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <div className="navbar">
       <span>
-        <a href="/">
+        <a href="/hrbooks">
           <img src="https://hannekristinrohde.no/wp-content/uploads/2020/01/cropped-Logo-copy-1.png" />
         </a>
       </span>
