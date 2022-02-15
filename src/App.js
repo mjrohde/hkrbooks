@@ -9,11 +9,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route
-          exact
-          path={process.env.PUBLIC_URL + "/"}
-          element={<Homepage />}
-        />
+        <Route exact path="/" element={<Homepage />} />
         <Route path="/Login" element={<Login />} />
       </Routes>
     </div>
