@@ -9,7 +9,11 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route exact path="/hkrbooks" element={<Homepage />} />
+        <Route
+          exact
+          path={process.env.PUBLIC_URL + "/hkrbooks"}
+          element={<Homepage />}
+        />
         <Route path="/hkrbooks/Login" element={<Login />} />
       </Routes>
     </div>

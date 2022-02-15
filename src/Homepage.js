@@ -119,7 +119,7 @@ function Homepage() {
 
               <input
                 type="number"
-                placeholder="1"
+                value="1"
                 className="input quantity"
                 onChange={
                   ((e) => setQuantity(e.target.value),
