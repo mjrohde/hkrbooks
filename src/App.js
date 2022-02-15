@@ -10,7 +10,7 @@ function App() {
       <Navbar />
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<Homepage />} />
+          <Route exact path="/hkrbooks" element={<Homepage />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
