@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "@firebase/firestore";
 const firebaseConfig = {
-  apiKey: process.env.apiKey,
+  apiKey: `${process.env.apiKey}`,
   authDomain: "hkrbackend.firebaseapp.com",
   projectId: "hkrbackend",
   storageBucket: "hkrbackend.appspot.com",
