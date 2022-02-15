@@ -8,12 +8,10 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/hkrbooks/" element={<Homepage />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/hkrbooks" element={<Homepage />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </div>
   );
 }
