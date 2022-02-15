@@ -1,0 +1,144 @@
+@import "https://unpkg.com/open-props";
+@import "https://unpkg.com/open-props/normalize.min.css";
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  text-shadow: var(--shadow-3);
+  display: flex;
+  align-items: center;
+}
+
+.input-container {
+  width: 80%;
+  height: 80%;
+  margin: auto;
+  box-shadow: var(--shadow-3);
+  position: relative;
+}
+
+.input-container > h1 {
+  margin: auto;
+  padding-top: 10px;
+}
+.input-container > div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.input-container > div > span {
+  flex: 0.5;
+  display: block;
+  text-align: start;
+  padding: 30px;
+}
+
+.input-container > span > div {
+  padding: 20px;
+}
+
+.input-container > div > span > div {
+  display: flex;
+  align-items: center;
+}
+.input-container > div > span > div > span {
+  flex: 0.4;
+}
+::placeholder {
+  color: whitesmoke;
+  opacity: 0.8;
+}
+
+.input {
+  border: none;
+  border-bottom: 1px solid white;
+  background: transparent;
+  width: 50%;
+  margin: var(--size-5) var(--size-6);
+}
+
+.input.name {
+  border-bottom: 1px solid red;
+}
+.input.address {
+  border-bottom: 1px solid red;
+}
+
+.input.tlf {
+  border-bottom: 1px solid green;
+}
+.input.postal {
+  border-bottom: 1px solid green;
+}
+
+.input.email {
+  border-bottom: 1px solid yellow;
+}
+.input.city {
+  border-bottom: 1px solid yellow;
+}
+.input.quantity {
+  border-bottom: 1px solid orange;
+}
+
+.input:focus,
+.input:hover {
+  outline: none;
+  border-bottom: 2px solid white;
+}
+
+.button {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.button > button {
+  background: green;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  width: 400px;
+  color: white;
+}
+
+.button > button:hover {
+  background: greenyellow;
+  color: black;
+}
+
+@media all and (max-width: 699px) {
+  .input-container > h1 {
+    font-size: 1.5rem;
+  }
+  .input-container > div {
+    flex-direction: column;
+  }
+
+  .input-container {
+    height: fit-content;
+    padding: 20px 0;
+  }
+
+  .button {
+    bottom: 2%;
+  }
+
+  .button > button {
+    width: 200px;
+    margin: auto;
+  }
+
+  .input-container > div > span > div {
+    flex-direction: column;
+  }
+
+  .input {
+    width: 100%;
+  }
+}
