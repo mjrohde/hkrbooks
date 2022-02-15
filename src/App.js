@@ -11,10 +11,10 @@ function App() {
       <Routes>
         <Route
           exact
-          path={process.env.PUBLIC_URL + "/hkrbooks"}
+          path={process.env.PUBLIC_URL + "/"}
           element={<Homepage />}
         />
-        <Route path="/hkrbooks/Login" element={<Login />} />
+        <Route path="/Login" element={<Login />} />
       </Routes>
     </div>
   );
