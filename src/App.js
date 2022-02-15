@@ -10,7 +10,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route exact path="/hkrbooks" element={<Homepage />} />
-        <Route path="/hkrbooks/login" element={<Login />} />
+        <Route path="/hkrbooks/Login" element={<Login />} />
       </Routes>
     </div>
   );
