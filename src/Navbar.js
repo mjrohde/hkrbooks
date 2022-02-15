@@ -10,7 +10,7 @@ function Navbar() {
         </a>
       </span>
       <span>
-        <a href="/login" className="login">
+        <a href="/hkrbooks/login" className="login">
           Login
         </a>
       </span>
