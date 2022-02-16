@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 
 function OrderItem({ order }) {
-  let { name, tlf, email, address, postalCode, city, quantity } = order;
+  let { name, tlf, email, address, postalCode, city, quantity, total } = order;
   const [hide, setHide] = useState(false);
 
   const toggleHide = () => {
@@ -23,6 +23,7 @@ function OrderItem({ order }) {
         <td>{postalCode}</td>
         <td>{city}</td>
         <td>{quantity}</td>
+        <td>{total}</td>
       </tr>
     </tbody>
   );

@@ -8,19 +8,22 @@
   display: flex;
   align-items: center;
   background-color: #212529;
+  color: white;
 }
 
 .input-container {
   width: 80%;
-  height: 80%;
+  min-height: 80%;
   margin: auto;
-  box-shadow: var(--shadow-3);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   position: relative;
+  padding: 20px;
 }
 
 .input-container > h1 {
   margin: auto;
   padding-top: 10px;
+  color: white;
 }
 .input-container > div {
   display: flex;
@@ -90,13 +93,19 @@
 }
 
 .button {
-  width: 100px;
+  width: 100%;
+  height: 20%;
+  place-items: end center;
+}
+
+.deliveryPrice {
+  width: 60%;
+  color: white;
+  margin: auto;
   display: flex;
-  justify-content: center;
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  transform: translate(-50%, 0);
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
 }
 
 .button > button {
@@ -105,6 +114,7 @@
   border-radius: 20px;
   padding: 5px 10px;
   width: 400px;
+  height: 50px;
   color: white;
 }
 
@@ -114,6 +124,9 @@
 }
 
 @media all and (max-width: 699px) {
+  .container {
+    height: 180vh;
+  }
   .input-container > h1 {
     font-size: 1.5rem;
   }

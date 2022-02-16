@@ -31,13 +31,14 @@ function Homepage() {
       quantity: quantity.toString(),
       tlf: tlf.toString(),
       email: email,
+      price: total.toString(),
     });
   };
 
   return (
     <div className="container">
       <div className="input-container">
-        <h1>Order for {book}</h1>
+        <h1>Order {book}</h1>
         <div>
           <span>
             <div>
@@ -119,7 +120,7 @@ function Homepage() {
 
               <input
                 type="number"
-                value="1"
+                placeholder="0"
                 className="input quantity"
                 onChange={
                   ((e) => setQuantity(e.target.value),
@@ -129,14 +130,18 @@ function Homepage() {
             </div>
           </span>
         </div>
+        <div className="deliveryPrice">
+          <p className="delivery">
+            *Din bestilling vil ikke bli sendt før betaling er gjennomført
+          </p>
+          <h3>
+            {"Total price: "}
+            {total} {" kr"}
+          </h3>
+        </div>
         <div className="button">
           <button onClick={() => setOrder()}>Place Order</button>
         </div>
-        <p>*Din bestilling vil ikke bli sendt før betaling er gjennomført</p>
-        <h3>
-          {"Total price: "}
-          {total} {" kr"}
-        </h3>
       </div>
     </div>
   );

@@ -18,9 +18,22 @@ table > tbody > tr > td {
 .table-view {
   width: 100vw;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  place-items: center center;
+}
+.search {
+  margin: 20px 0;
+  background: transparent;
+  border-bottom: 1px solid red;
+  width: 50%;
+}
+i {
+  position: absolute;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.search:hover {
+  outline: none;
 }
 
 table {

@@ -6,6 +6,7 @@ import OrderItem from "./OrderItem";
 
 function Login() {
   const [users, setUsers] = useState([]);
+  const [filterOrders, setFilterOrders] = useState([]);
   const [loading, setLoading] = useState(false);
   const [orders, setOrders] = useState([]);
   const [username, setUserName] = useState("");
@@ -24,6 +25,13 @@ function Login() {
     }
   }
 
+  function sortUsers(searchTerm) {
+    const tempfilteredUsers = orders.filter((order) => {
+      return order.name.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+    setFilterOrders(tempfilteredUsers);
+  }
+
   useEffect(() => {
     const getUsers = async () => {
       const res = await getDocs(usersCollectionRef);
@@ -38,6 +46,7 @@ function Login() {
       setLoading(true);
       const res = await getDocs(ordersCollectionRef);
       setOrders(res.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setFilterOrders(res.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       setLoading(false);
     };
 
@@ -55,6 +64,12 @@ function Login() {
         <div>
           {admin ? (
             <div className="table-view">
+              <input
+                type="text"
+                placeholder="Søk etter navn..."
+                className="search"
+                onChange={(e) => sortUsers(e.target.value)}
+              />
               <table>
                 <tbody>
                   <tr>
@@ -65,9 +80,10 @@ function Login() {
                     <td>Postal</td>
                     <td>City</td>
                     <td>Quantity</td>
+                    <td>Total price</td>
                   </tr>
                 </tbody>
-                {orders.map((order) => {
+                {filterOrders.map((order) => {
                   return <OrderItem key={order.id} order={order} />;
                 })}
               </table>
