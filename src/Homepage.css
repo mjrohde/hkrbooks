@@ -108,6 +108,10 @@
   margin: 10px 0;
 }
 
+.deliveryPrice > h3 {
+  color: white;
+}
+
 .button > button {
   background: green;
   border: none;
