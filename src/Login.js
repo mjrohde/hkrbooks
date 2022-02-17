@@ -28,6 +28,7 @@ function Login() {
   function checkUserName() {
     if (users[0].username === username && users[0].password === password) {
       setAdmin(true);
+      localStorage.setItem("admin", users[0]);
     } else {
       setAdmin(false);
       alert("Wrong password or username");
@@ -40,6 +41,12 @@ function Login() {
     });
     setFilterOrders(tempfilteredUsers);
   }
+
+  useEffect(() => {
+    localStorage.length == 1
+      ? setAdmin(true) && setLoading(false)
+      : setAdmin(false);
+  }, []);
 
   useEffect(() => {
     const getUsers = async () => {
