@@ -34,7 +34,7 @@ const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
             onMouseLeave={() => setHover({ left: false })}
             style={{
               color: hover.left
-                ? "rgba(119, 62, 43, 0.5)"
+                ? "#E9312B"
                 : "white" && active <= 1
                 ? "grey"
                 : "white",
@@ -65,7 +65,7 @@ const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
             onMouseLeave={() => setHover({ right: false })}
             style={{
               color: hover.right
-                ? "rgba(119, 62, 43, 0.5)"
+                ? "#E9312B"
                 : "white" && active === pageNumbers.length
                 ? "grey"
                 : "white",

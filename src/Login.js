@@ -6,17 +6,21 @@ import OrderItem from "./OrderItem";
 import Pagination from "./Pagination";
 import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
+import { useNavigate } from "react-router-dom";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 function Login() {
   const [users, setUsers] = useState([]);
   const [filterOrders, setFilterOrders] = useState([]);
   const [deletedProducts, setDeletedProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [orders, setOrders] = useState([]);
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+
+  const [loading, setLoading] = useState(false);
   const [admin, setAdmin] = useState(false);
   const [finished, setFinished] = useState(false);
+
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
   const usersCollectionRef = collection(db, "users");
   const ordersCollectionRef = collection(db, "orders");
@@ -24,6 +28,8 @@ function Login() {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [prodPerPage, setProdPerPage] = useState(5);
+
+  let navigate = useNavigate();
 
   function checkUserName() {
     if (users[0].username === username && users[0].password === password) {
@@ -40,6 +46,11 @@ function Login() {
       return order.name.toLowerCase().includes(searchTerm.toLowerCase());
     });
     setFilterOrders(tempfilteredUsers);
+  }
+
+  function logout() {
+    localStorage.removeItem("admin", users[0]);
+    navigate("/");
   }
 
   useEffect(() => {
@@ -66,16 +77,16 @@ function Login() {
   }, [deletedProducts]);
 
   useEffect(() => {
+    setLoading(true);
     const getOrders = async () => {
-      setLoading(true);
       const res = await getDocs(ordersCollectionRef);
       setOrders(res.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       setFilterOrders(res.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      setLoading(false);
     };
+    setLoading(false);
 
     getOrders();
-  }, [admin]);
+  }, [admin, orders]);
 
   function paginate(pageNumber) {
     setCurrentPage(pageNumber);
@@ -99,6 +110,10 @@ function Login() {
         <div>
           {admin ? (
             <div className="table-view">
+              <LogoutIcon
+                style={{ position: "absolute", top: "5%", right: "5%" }}
+                onClick={() => logout()}
+              />
               <div className="tabs">
                 <h3>Dashboard</h3>
                 <a
@@ -147,10 +162,22 @@ function Login() {
                 </tbody>
                 {finished
                   ? deletedProducts.map((order) => {
-                      return <OrderItem key={order.id} order={order} />;
+                      return (
+                        <OrderItem
+                          key={order.id}
+                          order={order}
+                          finished={true}
+                        />
+                      );
                     })
                   : currentProducts.map((order) => {
-                      return <OrderItem key={order.id} order={order} />;
+                      return (
+                        <OrderItem
+                          key={order.id}
+                          order={order}
+                          finished={false}
+                        />
+                      );
                     })}
               </table>
               {finished ? (

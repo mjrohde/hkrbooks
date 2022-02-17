@@ -127,6 +127,11 @@
   color: black;
 }
 
+.thankYou {
+  place-items: center center;
+  margin: auto;
+}
+
 @media all and (max-width: 699px) {
   .container {
     height: 180vh;

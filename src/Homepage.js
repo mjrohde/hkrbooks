@@ -12,6 +12,7 @@ function Homepage() {
   const [tlf, setTlf] = useState("");
   const [email, setEmail] = useState("");
   const [total, setTotal] = useState(299);
+  const [display, setDisplay] = useState(false);
 
   const usersCollectionRef = collection(db, "orders");
   const book = "Gudmoren";
@@ -45,11 +46,19 @@ function Homepage() {
     quantity != "" && quantity > 0
       ? setOrder()
       : alert("Please choose how many books you want.");
+
+    setDisplay(true);
   }
 
   return (
     <div className="container">
-      <div className="input-container">
+      <div className="thankYou" style={{ display: display ? "block" : "none" }}>
+        <h1>Thank you for your order!</h1>
+      </div>
+      <div
+        className="input-container"
+        style={{ display: display ? "none" : null }}
+      >
         <h1>Order {book}</h1>
         <div>
           <span>

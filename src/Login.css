@@ -20,6 +20,10 @@ table {
   text-align: center;
 }
 
+table > tbody:nth-child(2n - 1) {
+  background: #313539;
+}
+
 table > tbody > tr > td {
   border: 1px solid white;
   width: 200px;
@@ -94,7 +98,7 @@ i {
   flex-direction: column;
   align-items: center;
   padding: 20px 5px;
-  background-color: #232a3c;
+  background-color: #e9312b;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .tabs > a {
@@ -109,14 +113,14 @@ i {
 }
 
 .tabs > a:hover {
-  background: #5285e0;
+  background: #212529;
 }
 
 .orderTab.active {
-  background: #5285e0;
+  background: #212529;
 }
 .finishedOrderTab.active {
-  background: #5285e0;
+  background: #212529;
 }
 
 @keyframes loading {

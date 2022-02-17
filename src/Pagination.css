@@ -12,17 +12,18 @@
   color: white;
   border-radius: 50%;
   transition: 0.5s;
+  padding: 5px 10px;
 }
 
 .active,
 .page-link:hover {
-  background: rgba(119, 62, 43, 0.5);
+  background: #e9312b;
   color: white;
   text-decoration: none;
 }
 
 .arrrow {
-  color: rgba(119, 62, 43, 0.5);
+  color: #e9312b;
 }
 
 .nextPrev {
@@ -32,5 +33,5 @@
 }
 
 .nextPrev:hover {
-  color: #773e2b;
+  color: #e9312b;
 }
