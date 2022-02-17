@@ -19,6 +19,7 @@ function Homepage() {
   const price = 299;
 
   function calculateTotal(quantity) {
+    setQuantity(quantity);
     setTotal(price * quantity);
   }
 
@@ -31,9 +32,20 @@ function Homepage() {
       quantity: quantity.toString(),
       tlf: tlf.toString(),
       email: email,
-      price: total.toString(),
+      total: total.toString(),
     });
+    let elements = [];
+    elements = document.getElementsByClassName("input");
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].value = "";
+    }
   };
+
+  function sendOrder() {
+    quantity != "" && quantity > 0
+      ? setOrder()
+      : alert("Please choose how many books you want.");
+  }
 
   return (
     <div className="container">
@@ -122,10 +134,7 @@ function Homepage() {
                 type="number"
                 placeholder="0"
                 className="input quantity"
-                onChange={
-                  ((e) => setQuantity(e.target.value),
-                  (e) => calculateTotal(e.target.value))
-                }
+                onChange={(e) => calculateTotal(e.target.value)}
               />
             </div>
           </span>
@@ -140,7 +149,7 @@ function Homepage() {
           </h3>
         </div>
         <div className="button">
-          <button onClick={() => setOrder()}>Place Order</button>
+          <button onClick={() => sendOrder()}>Place Order</button>
         </div>
       </div>
     </div>
