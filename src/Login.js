@@ -8,6 +8,8 @@ import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import { useNavigate } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
 function Login() {
   const [users, setUsers] = useState([]);
@@ -18,6 +20,8 @@ function Login() {
   const [loading, setLoading] = useState(false);
   const [admin, setAdmin] = useState(false);
   const [finished, setFinished] = useState(false);
+  const [hover, setHover] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -111,10 +115,29 @@ function Login() {
           {admin ? (
             <div className="table-view">
               <LogoutIcon
-                style={{ position: "absolute", top: "5%", right: "5%" }}
+                fontSize="large"
+                style={{
+                  position: "absolute",
+                  top: "3%",
+                  right: "5%",
+                  color: hover ? "#e9312b" : "white",
+                }}
                 onClick={() => logout()}
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
               />
-              <div className="tabs">
+              <MenuIcon
+                onClick={() => setShowMenu(true)}
+                style={{ position: "absolute", top: "3%", left: "5%" }}
+                fontSize="large"
+              />
+
+              <div className="tabs" style={{ width: showMenu ? "250px" : 0 }}>
+                <CloseIcon
+                  onClick={() => setShowMenu(false)}
+                  style={{ position: "absolute", top: "1%", right: "5%" }}
+                  fontSize="large"
+                />
                 <h3>Dashboard</h3>
                 <a
                   className={finished ? "orderTab" : "orderTab active"}
@@ -130,7 +153,6 @@ function Login() {
                   className={
                     finished ? "finishedOrderTab active" : "finishedOrderTab"
                   }
-                  s
                   onClick={() => setFinished(true)}
                 >
                   <DeleteSweepIcon
@@ -139,6 +161,7 @@ function Login() {
                   />
                   <p>Finished</p>
                 </a>
+                <a className="change "></a>
               </div>
               <input
                 type="text"
@@ -149,7 +172,7 @@ function Login() {
               {finished ? <h1>Deleted Orders</h1> : <h1>Orders</h1>}
               <table>
                 <tbody>
-                  <tr>
+                  <tr className="table-header">
                     <td>Name</td>
                     <td>Tlf</td>
                     <td>Email</td>
@@ -180,31 +203,34 @@ function Login() {
                       );
                     })}
               </table>
-              {finished ? (
-                <Pagination
-                  productsPerPage={prodPerPage}
-                  totalProducts={deletedProducts.length}
-                  paginate={paginate}
-                />
-              ) : (
-                <Pagination
-                  productsPerPage={prodPerPage}
-                  totalProducts={filterOrders.length}
-                  paginate={paginate}
-                />
-              )}
-              <div className="selectDiv">
-                <select
-                  className="select"
-                  onChange={(e) => setProdPerPage(e.target.value)}
-                >
-                  <option>5</option>
-                  <option>10</option>
-                  <option>15</option>
-                  <option>20</option>
-                  <option>25</option>
-                </select>
+              <div className="paginationSelectPage">
+                {finished ? (
+                  <Pagination
+                    productsPerPage={prodPerPage}
+                    totalProducts={deletedProducts.length}
+                    paginate={paginate}
+                  />
+                ) : (
+                  <Pagination
+                    productsPerPage={prodPerPage}
+                    totalProducts={filterOrders.length}
+                    paginate={paginate}
+                  />
+                )}
+                <div className="selectDiv">
+                  <select
+                    className="select"
+                    onChange={(e) => setProdPerPage(e.target.value)}
+                  >
+                    <option>5</option>
+                    <option>10</option>
+                    <option>15</option>
+                    <option>20</option>
+                    <option>25</option>
+                  </select>
+                </div>
               </div>
+
               <p></p>
             </div>
           ) : (

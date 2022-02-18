@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./Homepage.css";
 import { db } from "./firebase-config";
-import { collection, addDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  addDoc,
+  getDoc,
+  query,
+  where,
+} from "firebase/firestore";
 
 function Homepage() {
   const [name, setName] = useState("");
@@ -15,6 +22,7 @@ function Homepage() {
   const [display, setDisplay] = useState(false);
 
   const usersCollectionRef = collection(db, "orders");
+
   const book = "Gudmoren";
 
   const price = 299;
@@ -40,6 +48,13 @@ function Homepage() {
     for (var i = 0; i < elements.length; i++) {
       elements[i].value = "";
     }
+
+    const q = query(usersCollectionRef, where("name", "==", name));
+
+    const data = await getDoc(q);
+    data.forEach((doc) => {
+      console.log(doc.data());
+    });
   };
 
   function sendOrder() {
