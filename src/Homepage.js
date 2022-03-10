@@ -34,7 +34,6 @@ function Homepage() {
   }
 
   const setOrder = async () => {
-    console.log(tlf.toString());
     await addDoc(usersCollectionRef, {
       name: name,
       address: address,
@@ -60,9 +59,15 @@ function Homepage() {
   };
 
   function sendOrder() {
-    quantity != "" && quantity > 0
+    quantity != "" &&
+    quantity > 0 &&
+    name != "" &&
+    address != "" &&
+    city != "" &&
+    tlf != "" &&
+    email != ""
       ? setOrder() && setDisplay(true)
-      : alert("Please choose how many books you want.");
+      : alert("Please fill in all fields below.");
   }
 
   return (
