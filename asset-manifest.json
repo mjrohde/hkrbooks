@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/hkrbooks/static/css/main.470a999d.css",
-    "main.js": "/hkrbooks/static/js/main.58ac15c3.js",
+    "main.js": "/hkrbooks/static/js/main.34bc870f.js",
     "static/js/787.0dd6d978.chunk.js": "/hkrbooks/static/js/787.0dd6d978.chunk.js",
     "index.html": "/hkrbooks/index.html",
     "main.470a999d.css.map": "/hkrbooks/static/css/main.470a999d.css.map",
-    "main.58ac15c3.js.map": "/hkrbooks/static/js/main.58ac15c3.js.map",
+    "main.34bc870f.js.map": "/hkrbooks/static/js/main.34bc870f.js.map",
     "787.0dd6d978.chunk.js.map": "/hkrbooks/static/js/787.0dd6d978.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.470a999d.css",
-    "static/js/main.58ac15c3.js"
+    "static/js/main.34bc870f.js"
   ]
 }
