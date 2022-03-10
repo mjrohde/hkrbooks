@@ -19,7 +19,7 @@ function Homepage() {
   const [quantity, setQuantity] = useState("");
   const [tlf, setTlf] = useState("");
   const [email, setEmail] = useState("");
-  const [total, setTotal] = useState(299);
+  const [total, setTotal] = useState(150);
   const [display, setDisplay] = useState(false);
 
   const usersCollectionRef = collection(db, "orders");

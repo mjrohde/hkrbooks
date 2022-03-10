@@ -15,8 +15,6 @@ function OrderItem({ order, finished }) {
   const ordersCollectionRef = collection(db, "orders");
   const finishedOrdersCollectionRef = collection(db, "finishedOrders");
 
-  let navigate = useNavigate();
-
   const handleChecked = (checkbox) => {
     checkbox ? setCheck(true) : setCheck(false);
   };
