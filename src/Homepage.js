@@ -24,7 +24,7 @@ function Homepage() {
 
   const usersCollectionRef = collection(db, "orders");
 
-  const book = "Mørke Hjerter";
+  const book = "Offerdyr";
 
   const price = 150;
 
@@ -43,6 +43,7 @@ function Homepage() {
       tlf: tlf.toString(),
       email: email,
       total: total.toString(),
+      book: book,
     });
     let elements = [];
     elements = document.getElementsByClassName("input");

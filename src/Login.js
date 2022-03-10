@@ -47,7 +47,10 @@ function Login() {
 
   function sortUsers(searchTerm) {
     const tempfilteredUsers = orders.filter((order) => {
-      return order.name.toLowerCase().includes(searchTerm.toLowerCase());
+      return (
+        order.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        order.book.toLowerCase().includes(searchTerm.toLowerCase())
+      );
     });
     setFilterOrders(tempfilteredUsers);
   }
@@ -90,7 +93,7 @@ function Login() {
     setLoading(false);
 
     getOrders();
-  }, [admin, orders]);
+  }, [admin]);
 
   function paginate(pageNumber) {
     setCurrentPage(pageNumber);
@@ -181,6 +184,7 @@ function Login() {
                     <td>City</td>
                     <td>Quantity</td>
                     <td>Total price</td>
+                    <td>Book</td>
                   </tr>
                 </tbody>
                 {finished

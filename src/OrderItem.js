@@ -7,8 +7,18 @@ import { collection, doc, deleteDoc, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
 function OrderItem({ order, finished }) {
-  let { id, name, tlf, email, address, postalCode, city, quantity, total } =
-    order;
+  let {
+    id,
+    name,
+    tlf,
+    email,
+    address,
+    postalCode,
+    city,
+    quantity,
+    total,
+    book,
+  } = order;
   const [check, setCheck] = useState(false);
   const [hover, setHover] = useState(false);
 
@@ -94,6 +104,7 @@ function OrderItem({ order, finished }) {
         <td>{city}</td>
         <td>{quantity}</td>
         <td>{total}</td>
+        <td>{book}</td>
       </tr>
     </tbody>
   );
