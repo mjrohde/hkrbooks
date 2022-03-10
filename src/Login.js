@@ -31,7 +31,7 @@ function Login() {
   const finishedOrdersCollectionRef = collection(db, "finishedOrders");
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [prodPerPage, setProdPerPage] = useState(5);
+  const [prodPerPage, setProdPerPage] = useState(10);
 
   let navigate = useNavigate();
 
@@ -220,6 +220,7 @@ function Login() {
                 <div className="selectDiv">
                   <select
                     className="select"
+                    value={prodPerPage}
                     onChange={(e) => setProdPerPage(e.target.value)}
                   >
                     <option>5</option>
