@@ -37,16 +37,6 @@ function OrderItem({ order, finished }) {
 
   const handleFullDelete = async () => {
     await deleteDoc(doc(finishedOrdersCollectionRef, id));
-    await addDoc(ordersCollectionRef, {
-      name: order.name,
-      tlf: order.tlf,
-      email: order.email,
-      address: order.address,
-      postalCode: order.postalCode,
-      city: order.city,
-      quantity: order.quantity,
-      total: order.total,
-    });
   };
 
   return (

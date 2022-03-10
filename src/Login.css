@@ -8,6 +8,8 @@
 
 .input {
   margin: 50px 30px;
+  color: white;
+  font-size: 1.5rem;
 }
 
 table {
@@ -33,7 +35,7 @@ table > tbody > tr {
 
 .table-view {
   width: 80vw;
-  height: 100vh;
+  min-height: 100vh;
   margin: auto;
   place-items: center;
 }
@@ -98,9 +100,10 @@ i {
   top: 0;
   left: 0;
   background-color: #e9312b;
+  color: white;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
+  padding-top: 40px;
 }
 .tabs > a {
   border-radius: 10px;
@@ -110,15 +113,9 @@ i {
   display: flex;
   align-items: center;
   justify-content: start;
-  text-align: start;
 }
-
-.closbtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+.tabs > h3 {
+  color: white;
 }
 
 .tabs > a:hover {
@@ -151,8 +148,12 @@ i {
 select {
   background: transparent;
   outline: none;
+  color: white;
 }
 
 .MuiSvgIcon-root:hover {
-  color: #e9312b;
+  color: #212529;
+}
+.MuiSvgIcon-root {
+  color: white;
 }

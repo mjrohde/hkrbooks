@@ -3,7 +3,6 @@ import Login from "./Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./Homepage";
 import Navbar from "./Navbar";
-import { Redirect } from "react-router-dom";
 
 function App() {
   return (

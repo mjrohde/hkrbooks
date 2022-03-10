@@ -9,6 +9,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
+import MuiPhoneNumber from "material-ui-phone-number";
 
 function Homepage() {
   const [name, setName] = useState("");
@@ -23,9 +24,9 @@ function Homepage() {
 
   const usersCollectionRef = collection(db, "orders");
 
-  const book = "Gudmoren";
+  const book = "Mørke Hjerter";
 
-  const price = 299;
+  const price = 150;
 
   function calculateTotal(quantity) {
     setQuantity(quantity);
@@ -33,6 +34,7 @@ function Homepage() {
   }
 
   const setOrder = async () => {
+    console.log(tlf.toString());
     await addDoc(usersCollectionRef, {
       name: name,
       address: address,
@@ -59,10 +61,8 @@ function Homepage() {
 
   function sendOrder() {
     quantity != "" && quantity > 0
-      ? setOrder()
+      ? setOrder() && setDisplay(true)
       : alert("Please choose how many books you want.");
-
-    setDisplay(true);
   }
 
   return (
@@ -93,8 +93,10 @@ function Homepage() {
                 <label htmlFor="input tlf">Tlf:</label>
               </span>
               <input
-                type="number"
+                type="tel"
                 placeholder="Tlf..."
+                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                required
                 className="input tlf"
                 onChange={(e) => setTlf(e.target.value)}
               />
@@ -104,7 +106,7 @@ function Homepage() {
                 <label htmlFor="input email">Email:</label>
               </span>
               <input
-                type="text"
+                type="e-mail"
                 placeholder="E-mail..."
                 className="input email"
                 onChange={(e) => setEmail(e.target.value)}

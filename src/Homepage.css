@@ -3,7 +3,7 @@
 
 .container {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   text-shadow: var(--shadow-3);
   display: flex;
   align-items: center;
@@ -57,6 +57,7 @@
 .input {
   border: none;
   border-bottom: 1px solid white;
+  color: white;
   background: transparent;
   width: 50%;
   margin: var(--size-5) var(--size-6);
@@ -130,6 +131,10 @@
 .thankYou {
   place-items: center center;
   margin: auto;
+  color: white;
+}
+.thankYou > h1 {
+  color: white;
 }
 
 @media all and (max-width: 699px) {
