@@ -168,6 +168,7 @@ function Homepage() {
         <div className="deliveryPrice">
           <p className="delivery">
             *Din bestilling vil ikke bli sendt før betaling er gjennomført
+            <br />
             Vipps-krav blir sendt om litt.
           </p>
           <h3>
