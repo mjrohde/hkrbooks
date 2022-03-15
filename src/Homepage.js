@@ -24,7 +24,7 @@ function Homepage() {
 
   const usersCollectionRef = collection(db, "orders");
 
-  const book = "Offerdyr";
+  const book = "Gudmoren";
 
   const price = 150;
 
