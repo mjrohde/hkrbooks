@@ -41,6 +41,7 @@ function OrderItem({ order, finished }) {
       quantity: order.quantity,
       total: order.total,
     });
+    window.location.reload();
   };
 
   const handleFullDelete = async () => {

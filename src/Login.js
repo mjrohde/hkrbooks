@@ -15,6 +15,7 @@ function Login() {
   const [users, setUsers] = useState([]);
   const [filterOrders, setFilterOrders] = useState([]);
   const [deletedProducts, setDeletedProducts] = useState([]);
+  const [filterDeleted, setFilterDeleted] = useState([]);
   const [orders, setOrders] = useState([]);
 
   const [loading, setLoading] = useState(false);
@@ -77,6 +78,7 @@ function Login() {
       setDeletedProducts(
         res.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       );
+      setFilterDeleted(res.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
 
     getFinishedUsers();
@@ -188,7 +190,7 @@ function Login() {
                   </tr>
                 </tbody>
                 {finished
-                  ? deletedProducts.map((order) => {
+                  ? filterDeleted.map((order) => {
                       return (
                         <OrderItem
                           key={order.id}
