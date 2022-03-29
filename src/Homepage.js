@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Homepage.css";
 import { db } from "./firebase-config";
+import axios from "axios";
 import {
   collection,
   doc,
@@ -9,7 +10,6 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import MuiPhoneNumber from "material-ui-phone-number";
 
 function Homepage() {
   const [name, setName] = useState("");
@@ -21,10 +21,11 @@ function Homepage() {
   const [email, setEmail] = useState("");
   const [total, setTotal] = useState(150);
   const [display, setDisplay] = useState(false);
+  const [local, setLocal] = useState([]);
 
   const usersCollectionRef = collection(db, "orders");
 
-  const book = "Gudmoren";
+  const book = "Bare et barn";
 
   const price = 150;
 
@@ -67,9 +68,26 @@ function Homepage() {
     city != "" &&
     tlf != "" &&
     email != ""
-      ? setOrder() && setDisplay(true)
+      ? setOrder() && setDisplay(true) && localStorage.setItem("cart", quantity)
       : alert("Please fill in all fields below.");
   }
+
+  /* Sends the localStorage cart items to the express server. This is not the secure way to do it, since the price
+    is stored in the client and sent to the server, but it works for this little project*/
+  const sendLocal = async () => {
+    setLocal(JSON.parse(localStorage.getItem("cart")));
+    await axios
+      .post("http://localhost:3001/send-item-details", {
+        local,
+      })
+      .then((res) => {
+        console.log(res.data);
+      });
+  };
+
+  useEffect(() => {
+    sendLocal();
+  }, []);
 
   return (
     <div className="container">
@@ -183,7 +201,9 @@ function Homepage() {
           </h3>
         </div>
         <div className="button">
-          <button onClick={() => sendOrder()}>Place Order</button>
+          <button id="checkOutButton" onClick={() => sendOrder()}>
+            Place Order
+          </button>
         </div>
       </div>
     </div>
