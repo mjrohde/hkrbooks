@@ -19,7 +19,7 @@ function Homepage() {
   const [quantity, setQuantity] = useState("");
   const [tlf, setTlf] = useState("");
   const [email, setEmail] = useState("");
-  const [total, setTotal] = useState(price);
+  const [total, setTotal] = useState(0);
   const [display, setDisplay] = useState(false);
   const [local, setLocal] = useState([]);
 
@@ -182,7 +182,7 @@ function Homepage() {
 
               <input
                 type="number"
-                defaultValue={1}
+                placeholder="Enter Amount..."
                 className="input quantity"
                 onChange={(e) => calculateTotal(e.target.value)}
               />
