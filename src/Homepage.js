@@ -182,7 +182,6 @@ function Homepage() {
 
               <input
                 type="number"
-                placeholder="1"
                 defaultValue={1}
                 className="input quantity"
                 onChange={(e) => calculateTotal(e.target.value)}
