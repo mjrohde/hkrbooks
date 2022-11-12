@@ -19,7 +19,7 @@ function Homepage() {
   const [quantity, setQuantity] = useState("");
   const [tlf, setTlf] = useState("");
   const [email, setEmail] = useState("");
-  const [total, setTotal] = useState(150);
+  const [total, setTotal] = useState(price);
   const [display, setDisplay] = useState(false);
   const [local, setLocal] = useState([]);
 
