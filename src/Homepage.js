@@ -25,9 +25,9 @@ function Homepage() {
 
   const usersCollectionRef = collection(db, "orders");
 
-  const book = "Bare et barn";
+  const book = "003-Agentene og hemmeligheten";
 
-  const price = 150;
+  const price = 229;
 
   function calculateTotal(quantity) {
     setQuantity(quantity);
