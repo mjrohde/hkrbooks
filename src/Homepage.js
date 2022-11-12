@@ -2,14 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Homepage.css";
 import { db } from "./firebase-config";
 import axios from "axios";
-import {
-  collection,
-  doc,
-  addDoc,
-  getDoc,
-  query,
-  where,
-} from "firebase/firestore";
+import { collection, addDoc, getDoc, query, where } from "firebase/firestore";
 
 function Homepage() {
   const [name, setName] = useState("");
