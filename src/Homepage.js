@@ -27,7 +27,7 @@ function Homepage() {
 
   const book = "003-Agentene og hemmeligheten";
 
-  const price = 229;
+  const price = 230;
 
   function calculateTotal(quantity) {
     setQuantity(quantity);
