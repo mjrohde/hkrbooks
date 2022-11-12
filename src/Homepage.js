@@ -144,7 +144,7 @@ function Homepage() {
               </span>
               <input
                 type="text"
-                placeholder="Address"
+                placeholder="Address..."
                 className="input address"
                 onChange={(e) => setAddress(e.target.value)}
               />
@@ -155,7 +155,7 @@ function Homepage() {
               </span>
               <input
                 type="text"
-                placeholder="0604"
+                placeholder="Postal code..."
                 className="input postal"
                 onChange={(e) => setPostal(e.target.value)}
               />
@@ -166,7 +166,7 @@ function Homepage() {
               </span>
               <input
                 type="text"
-                placeholder="City"
+                placeholder="City..."
                 className="input city"
                 onChange={(e) => setCity(e.target.value)}
               />
