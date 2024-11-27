@@ -18,9 +18,9 @@ function Homepage() {
 
   const usersCollectionRef = collection(db, "orders");
 
-  const book = "003-Agentene og hemmeligheten";
+  const book = "Ilddronningen";
 
-  const price = 239;
+  const price = 378;
 
   function calculateTotal(quantity) {
     setQuantity(quantity);
@@ -92,6 +92,8 @@ function Homepage() {
         style={{ display: display ? "none" : null }}
       >
         <h1>Order {book}</h1>
+        <h2>Black Week Tilbud!</h2>
+        <h3>Bestill nå, få med Kjemp for alt hva du har kjært.</h3>
         <div>
           <span>
             <div>
